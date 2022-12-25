@@ -30,4 +30,4 @@ jobs:
           git config --global user.name "Samet"
           git add README.md
           git commit -m "Added new PRs to README"
-          git push origin main
+          git push
