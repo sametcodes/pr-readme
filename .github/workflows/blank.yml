@@ -10,6 +10,9 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+env:
+  REPO_SECRET: ${{ secrets.REPO_SECRET }}
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -25,6 +28,7 @@ jobs:
           curl -s https://api.github.com/repos/${{ github.repository }}/pulls -o README.md
 
           # Commit and push the changes to the repository
+          git remote set-url --push origin https://sametcodes:$REPO_SECRET@github.com/sametcodes/pr-readme
           git config --global user.email "hey@samet.codes"
           git config --global user.name "Samet"
           git add README.md
