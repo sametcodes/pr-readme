@@ -21,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: ${{ github.event.pull_request.head.ref }}
+          ref: main
       - name: Update README.md
         run: |
           curl -s https://api.github.com/repos/${{ github.repository }}/pulls -o README.md
