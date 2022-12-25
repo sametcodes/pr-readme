@@ -25,9 +25,8 @@ jobs:
           curl -s https://api.github.com/repos/${{ github.repository }}/pulls -o README.md
 
           # Commit and push the changes to the repository
-          git remote set-url --push origin https://sametcodes:$GITHUB_TOKEN@github.com/sametcodes/pr-readme
-          git config --global user.email "hey@samet.codes"
-          git config --global user.name "Samet"
-          git add README.md
-          git commit -m "Added new PRs to README"
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "README.md updated"
           git push
